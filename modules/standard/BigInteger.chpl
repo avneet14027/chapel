@@ -2212,6 +2212,17 @@ module BigInteger {
 
 
   // divexact
+
+/*
+
+Computes the quotients when corresponding elements of a bigint array *n* are divided by corresponding elements of a bigint array *d*, and stores the quotient in another bigint array preceding the function call for whichever elements of the array are exactly divisible, with remainder zero.
+
+* Arguments:
+	* const ref n: bigint: a bigint array
+	* const ref d: bigint: another bigint array
+
+*/
+
   proc bigint.divexact(const ref n: bigint, const ref d: bigint) {
     if _local {
       mpz_divexact(this.mpz, n.mpz, d.mpz);
@@ -2232,6 +2243,7 @@ module BigInteger {
       }
     }
   }
+
 
   proc bigint.divexact(const ref n: bigint, d: integral) {
     this.divexact(n, new bigint(d));
